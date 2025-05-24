@@ -3,7 +3,7 @@ import json
 import base64
 import logging
 
-server_address=('0.0.0.0',7777)
+server_address=('172.16.16.101',6666)
 
 def send_command(command_str=""):
     global server_address
@@ -47,6 +47,17 @@ def remote_list():
     else:
         print("Gagal")
         return False
+        
+def remote_upload(filename=""):
+    file = open(filename,'rb')
+    isifile = base64.b64encode(file.read()).decode()
+    command_str=f"POST {filename} " + isifile
+    hasil = send_command(command_str)
+    if (hasil['status']=='OK'):
+        print("File berhasil dikirim")
+        return True
+    else:
+        print("Gagal")
 
 def remote_get(filename=""):
     command_str=f"GET {filename}"
@@ -62,10 +73,22 @@ def remote_get(filename=""):
     else:
         print("Gagal")
         return False
+        
+def remote_delete(filename=""):
+    command_str=f"DELETE {filename}"
+    hasil = send_command(command_str)
+    if hasil['status']=='OK':
+        print("File berhasil dihapus")
+        return True
+    else:
+        print("Gagal")
+        return False
 
 
 if __name__=='__main__':
     server_address=('172.16.16.101',6666)
     remote_list()
-    remote_get('donalbebek.jpg')
+    remote_get('rfc2616.pdf')
+    remote_upload('donalbebek.jpg')
+    remote_delete('PROTOKOL.txt')
 
