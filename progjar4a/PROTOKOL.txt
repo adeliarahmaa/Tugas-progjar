@@ -47,10 +47,10 @@ UPLOAD
 * RESULT:
 - BERHASIL:
   - status: OK
-  - data: pesan sukses (e.g., "File <nama_file> berhasil diupload")
+  - data: pesan sukses (e.g., "File berhasil diupload")
 - GAGAL:
   - status: ERROR
-  - data: pesan kesalahan (e.g., "Gagal upload file: <detail_error>")
+  - data: pesan kesalahan (e.g., "Gagal upload file")
 
 DELETE
 * TUJUAN: untuk menghapus file yang ada di server.
@@ -59,8 +59,8 @@ DELETE
 * RESULT:
 - BERHASIL:
   - status: OK
-  - data: pesan sukses (e.g., "File <nama_file> berhasil dihapus")
+  - data: pesan sukses (e.g., "File berhasil dihapus")
 - GAGAL:
   - status: ERROR
-  - data: pesan kesalahan (e.g., "File <nama_file> tidak ditemukan")
+  - data: pesan kesalahan (e.g., "File tidak dapat dihapus")
 
