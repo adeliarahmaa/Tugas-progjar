@@ -26,6 +26,27 @@ class FileInterface:
         except Exception as e:
             return dict(status='ERROR',data=str(e))
 
+       def post(self,params=[]):
+        try:
+            filename=params[0]
+            if(filename==''):
+                return None
+            fp = open(f"{filename}",'wb')
+            fp.write(base64.b64decode(params[1]))
+            return dict(status='OK')
+        except Exception as e:
+            return dict(status='ERROR',data=str(e))
+    
+    def delete(self,params=[]):
+        try:
+            filename=params[0]
+            if(filename==''):
+                return None
+            os.remove(filename)
+            return dict(status="OK")
+        except Exception as e:
+            return dict(status="ERROR",data=str(e))
+
 
 
 if __name__=='__main__':
