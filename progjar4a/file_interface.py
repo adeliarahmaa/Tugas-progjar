@@ -26,7 +26,7 @@ class FileInterface:
         except Exception as e:
             return dict(status='ERROR',data=str(e))
 
-       def post(self,params=[]):
+       def upload(self,params=[]):
         try:
             filename=params[0]
             if(filename==''):
