@@ -69,9 +69,10 @@ def remote_get(filename=""):
         fp = open(namafile,'wb+')
         fp.write(isifile)
         fp.close()
+        print("File berhasil diupload")
         return True
     else:
-        print("Gagal")
+        print("Gagal upload file")
         return False
         
 def remote_delete(filename=""):
@@ -81,7 +82,7 @@ def remote_delete(filename=""):
         print("File berhasil dihapus")
         return True
     else:
-        print("Gagal")
+        print("File tidak dapat dihapus")
         return False
 
 
